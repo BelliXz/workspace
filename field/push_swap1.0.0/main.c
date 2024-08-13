@@ -73,7 +73,7 @@ int	ft_init_stack(int ac, char **av, t_stack *a)
 	int		i;
 	int		j;
 	char	**nbr;
-
+	
 	i = 1;
 	while (i < ac)
 	{
@@ -90,7 +90,6 @@ int	ft_init_stack(int ac, char **av, t_stack *a)
 		i++;
 	}
 	ft_index(a);
-	a = first;
 	return (1);
 }
 

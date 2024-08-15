@@ -1,3 +1,5 @@
+#include "../push_swap.h"
+
 t_stack	*ft_stknew(int value)
 {
 	t_stack	*new;
@@ -37,9 +39,9 @@ void	ft_stkadd_back(t_stack **stack, t_stack *to_add)
 	}
 }
 
-size_t	ft_stksize(t_stack *stack)
+int	ft_stksize(t_stack *stack)
 {
-	size_t	i;
+	int	i;
 	t_stack	*tmp;
 
 	i = 0;
@@ -52,11 +54,11 @@ size_t	ft_stksize(t_stack *stack)
 	return (i);
 }
 
-size_t	ft_find_max(t_stack **stack)
+int	ft_find_max(t_stack **stack)
 {
 	t_stack	*node;
-	size_t	max;
-	size_t	max_bit;
+	int	max;
+	int	max_bit;
 
 	node = *stack;
 	max = node->index;

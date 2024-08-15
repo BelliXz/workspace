@@ -1,3 +1,5 @@
+#include "../push_swap.h"
+
 int	ft_is_num(char	**nbr)
 {
 	int	i;
@@ -42,10 +44,10 @@ int	ft_check_dup(int num, t_stack **stack)
 int	ft_check_input(char **nbr, t_stack **stack)
 {
 	int		i;
-	int		j;
 	long	num;
 	
-	if (ft_is_num)
+	i = 0;
+	if (ft_is_num(nbr))
 	{
 		ft_putstr_fd("Error\n", 1);
 		return (1);

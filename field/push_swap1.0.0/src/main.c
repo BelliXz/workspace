@@ -46,10 +46,9 @@ void	ft_index(t_stack **stack)
 
 int	ft_init_stack(t_stack **stack, int ac, char **av)
 {
-	t_stack	*tmp;
 	char	**nbr;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
 	i = 1;
 	while (i < ac)
@@ -57,20 +56,20 @@ int	ft_init_stack(t_stack **stack, int ac, char **av)
 		nbr = ft_split(av[i], ' ');
 		if (ft_check_input(nbr, stack))
 		{
-			ft_free(nbr);
+			ft_free_array(nbr);
 			return (1);
 		}
 		j = 0;
 		while (nbr[j])
 			ft_add_to_stack(nbr[j++], stack);
-		ft_free(nbr);
+		ft_free_array(nbr);
 		i++;
 	}
 	ft_index(stack);
 	return (0);
 }
 
-int	main(int ac, **av)
+int	main(int ac, char **av)
 {
 	t_stack	**stack_a;
 	t_stack	**stack_b;

@@ -1,3 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_list.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/09 18:33:22 by shovsepy          #+#    #+#             */
+/*   Updated: 2021/07/09 18:33:23 by shovsepy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+// Creates new node and returns the pointer of it
 t_list	*ft_lstnew(int value)
 {
 	t_list	*new;
@@ -80,3 +95,4 @@ void	printList(t_list *head)
 		tmp = tmp->next;
 	}
 }
+

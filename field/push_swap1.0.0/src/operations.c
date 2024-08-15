@@ -1,3 +1,5 @@
+#include "../push_swap.h"
+
 void	swap(t_stack **stack, char *op)
 {
 	t_stack	*first;
@@ -53,8 +55,8 @@ void	rotate(t_stack **stack, char *op)
 	first = *stack;
 	last = ft_stklast(*stack);
 	*stack = first->next;
-	head->next = NULL;
-	last->next = head;
+	first->next = NULL;
+	last->next = first;
 	ft_putstr_fd(op, 1);
 	ft_putstr_fd("\n", 1);
 }
@@ -69,10 +71,10 @@ void	rev_rotate(t_stack **stack, char *op)
 	{
 		if (first->next->next == NULL)
 		{
-			head->next = NULL;
+			first->next = NULL;
 			break;
 		}
-		head = head->next;
+		first = first->next;
 	}
 	last->next = *stack;
 	*stack = last;

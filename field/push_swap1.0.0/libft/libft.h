@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paradari <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: paradari <paradari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:44:40 by paradari          #+#    #+#             */
-/*   Updated: 2023/10/28 14:29:22 by paradari         ###   ########.fr       */
+/*   Updated: 2024/08/15 11:05:57 by paradari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-typedef struct s_stack
-{
-	int				value;
-	int				index;
-	struct s_stack	*next;
-}	t_stack;
-
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *str, size_t byt);
@@ -60,7 +52,8 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
-t_stack				*ft_lstnew(t_stack *content);
+
+/*t_stack				*ft_lstnew(t_stack *content);
 void				ft_lstadd_front(t_stack **lst, t_stack *new);
 int					ft_lstsize(t_stack *lst);
 t_stack				*ft_lstlast(t_stack *lst);
@@ -69,6 +62,6 @@ void				ft_lstdelone(t_stack *lst, void (*del)(void *));
 void				ft_lstclear(t_stack **lst, void (*del)(void *));
 void				ft_lstiter(t_stack *lst, void (*f)(void *));
 t_stack				*ft_lstmap(t_stack *lst, void *(*f)(void *),
-						void (*del)(void *));
+						void (*del)(void *));*/
 
 #endif

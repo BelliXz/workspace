@@ -1,3 +1,5 @@
+#include "../push_swap.h"
+
 void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*a_first;
@@ -21,7 +23,7 @@ void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 			else
 				push(stack_a, stack_b, "pb");
 		}
-		while (ft_stksize(stack_b) != 0)
+		while (ft_stksize(*stack_b) != 0)
 			push(stack_b, stack_a, "pa");
 		i++;
 	}

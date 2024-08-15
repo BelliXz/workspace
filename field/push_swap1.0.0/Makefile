@@ -1,8 +1,11 @@
 NAME = push_swap
 
-SRC = main.c\
-		main_utils.c\
-		test.c
+SRC = src/main.c\
+		src/utils.c\
+		src/error.c\
+		src/sort.c\
+		src/operations.c\
+		src/free.c
 
 CC = cc
 
@@ -29,3 +32,5 @@ fclean : clean
 		make fclean -C $(LIBFT_PATH)
 
 re : fclean all
+
+.PHONY: all clean fclean re

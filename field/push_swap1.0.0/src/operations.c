@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paradari <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/15 14:40:37 by paradari          #+#    #+#             */
+/*   Updated: 2024/08/15 14:40:39 by paradari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	swap(t_stack **stack, char *op)
@@ -5,18 +17,18 @@ void	swap(t_stack **stack, char *op)
 	t_stack	*first;
 	t_stack	*tmp;
 	int		value;
-	int		index;
+	int		id;
 
 	if (ft_stksize(*stack) < 2)
 		return ;
 	first = *stack;
 	tmp = first->next;
 	value = tmp->value;
-	index = tmp->index;
+	id = tmp->id;
 	tmp->value = first->value;
-	tmp->index = first->index;
+	tmp->id = first->id;
 	first->value = value;
-	first->index = index;
+	first->id = id;
 	ft_putstr_fd(op, 1);
 	ft_putstr_fd("\n", 1);
 }
@@ -65,6 +77,7 @@ void	rev_rotate(t_stack **stack, char *op)
 {
 	t_stack	*first;
 	t_stack	*last;
+
 	first = *stack;
 	last = ft_stklast(*stack);
 	while (first)
@@ -72,7 +85,7 @@ void	rev_rotate(t_stack **stack, char *op)
 		if (first->next->next == NULL)
 		{
 			first->next = NULL;
-			break;
+			break ;
 		}
 		first = first->next;
 	}

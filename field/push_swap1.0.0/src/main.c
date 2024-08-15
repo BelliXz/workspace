@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paradari <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/15 14:40:20 by paradari          #+#    #+#             */
+/*   Updated: 2024/08/15 14:40:30 by paradari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	ft_add_to_stack(char *nbr, t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = ft_stknew(ft_atoi(nbr));
 	ft_stkadd_back(stack, tmp);
@@ -30,17 +42,17 @@ void	ft_index(t_stack **stack)
 
 	first = *stack;
 	tmp1 = first;
-	tmp2	= first;
+	tmp2 = first;
 	while (tmp1)
 	{
 		while (tmp2)
 		{
 			if (tmp1->value > tmp2->value)
-				tmp1->index++;
+				tmp1->id++;
 			tmp2 = tmp2->next;
 		}
 		tmp1 = tmp1->next;
-		tmp2 = first; 
+		tmp2 = first;
 	}
 }
 
@@ -61,11 +73,22 @@ int	ft_init_stack(t_stack **stack, int ac, char **av)
 		}
 		j = 0;
 		while (nbr[j])
-			ft_add_to_stack(nbr[j++], stack);
+		{
+			ft_add_to_stack(nbr[j], stack);
+			j++;
+		}
 		ft_free_array(nbr);
 		i++;
 	}
 	ft_index(stack);
+
+	t_stack *test;
+	test = *stack;
+	while (test)
+	{
+		printf("index = %d\n", test->id);
+		test = test->next;
+	}
 	return (0);
 }
 
@@ -75,18 +98,15 @@ int	main(int ac, char **av)
 	t_stack	**stack_b;
 
 	if (ac < 2)
-	{
-		ft_putstr_fd("Input must be more than 1 args\n", 1);
 		return (1);
-	}
 	stack_a = malloc(sizeof(t_stack));
 	stack_b = malloc(sizeof(t_stack));
 	*stack_a = NULL;
 	*stack_b = NULL;
 	if (ft_init_stack(stack_a, ac, av) == 0)
 	{
-		if (ft_is_sort(stack_a) == 0)
-			ft_sort(stack_a, stack_b);
+		// if (ft_is_sort(stack_a) == 0)
+		// 	ft_sort(stack_a, stack_b);
 	}
 	ft_free_stack(stack_a);
 	ft_free_stack(stack_b);

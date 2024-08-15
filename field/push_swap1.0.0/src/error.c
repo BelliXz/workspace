@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paradari <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/15 14:39:53 by paradari          #+#    #+#             */
+/*   Updated: 2024/08/15 14:39:55 by paradari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	ft_is_num(char	**nbr)
@@ -6,17 +18,15 @@ int	ft_is_num(char	**nbr)
 	int	j;
 
 	i = 0;
-	while(nbr[i])
+	while (nbr[i])
 	{
 		j = 0;
 		if (nbr[i][j] == '-' || nbr[i][j] == '+')
 			j++;
 		while (nbr[i][j])
 		{
-			if (nbr[i][j] < '0' && nbr[i][j] > '9')
-			{
+			if (nbr[i][j] < '0' || nbr[i][j] > '9')
 				return (1);
-			}
 			j++;
 		}
 		i++;
@@ -32,10 +42,7 @@ int	ft_check_dup(int num, t_stack **stack)
 	while (node)
 	{
 		if (node->value == num)
-		{
-			ft_putstr_fd("Error\n", 1);
 			return (1);
-		}
 		node = node->next;
 	}
 	return (0);
@@ -45,7 +52,7 @@ int	ft_check_input(char **nbr, t_stack **stack)
 {
 	int		i;
 	long	num;
-	
+
 	i = 0;
 	if (ft_is_num(nbr))
 	{

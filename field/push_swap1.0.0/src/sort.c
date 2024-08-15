@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paradari <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/15 14:40:47 by paradari          #+#    #+#             */
+/*   Updated: 2024/08/15 14:40:48 by paradari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
@@ -18,7 +30,7 @@ void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 		while (j < stack_size)
 		{
 			a_first = *stack_a;
-			if (((a_first->index >> i) & 1) == 1)
+			if (((a_first->id >> i) & 1) == 1)
 				rotate(stack_a, "ra");
 			else
 				push(stack_a, stack_b, "pb");
@@ -31,32 +43,29 @@ void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 
 void	ft_sort3(t_stack **stack)
 {
-	t_stack	*first;
-	t_stack	*second;
-	t_stack	*third;
+	t_stack	*st;
+	t_stack	*nd;
+	t_stack	*rd;
 
-	first = *stack;
-	second = first->next;
-	third = second->next;
-	if (first->index > second->index && first->index < third->index)
+	st = *stack;
+	nd = st->next;
+	rd = nd->next;
+	if (st->id > nd->id && st->id < rd->id)
 		swap(stack, "sa");
-	else if (first->index > second->index && second->index > third->index)
+	else if (st->id > nd->id && nd->id > rd->id)
 	{
 		rotate(stack, "ra");
 		swap(stack, "sb");
 	}
-	else if (first->index > second->index && second->index < third->index
-			&& first->index > third->index)
-			rotate(stack, "ra");
-	else if (first->index < second->index && second->index > third->index
-			&& first->index < third->index)
+	else if (st->id > nd->id && nd->id < rd->id && st->id > rd->id)
+		rotate(stack, "ra");
+	else if (st->id < nd->id && nd->id > rd->id && st->id < rd->id)
 	{
-			swap(stack, "sa");
-			rotate(stack, "ra");
+		swap(stack, "sa");
+		rotate(stack, "ra");
 	}
-	else if (first->index < second->index && second->index > third->index
-			&& first->index > third->index)
-			rev_rotate(stack, "rra");
+	else if (st->id < nd->id && nd->id > rd->id && st->id > rd->id)
+		rev_rotate(stack, "rra");
 }
 
 void	ft_sort_2_3(t_stack **stack)

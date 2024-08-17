@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paradari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 14:52:09 by paradari          #+#    #+#             */
-/*   Updated: 2023/10/30 17:10:03 by paradari         ###   ########.fr       */
+/*   Created: 2024/08/15 18:31:35 by paradari          #+#    #+#             */
+/*   Updated: 2024/08/15 18:31:37 by paradari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-long	ft_atoi(const char *str)
+int	ft_get_pos(t_stack **stack_a)
 {
-	long	i;
-	long	nb;
-	long	neg;
+	int		pos;
+	t_stack	*tmp;
 
-	i = 0;
-	nb = 0;
-	neg = 1;
-	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\r' || str[i] == '\f'
-		|| str[i] == '\v' || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	pos = 0;
+	tmp = *stack_a;
+	while (tmp)
 	{
-		if (str[i] == '-')
-			neg *= -1;
-		i++;
+		if (tmp->id == 0 || tmp->id == 1)
+			return (pos);
+		else
+		{
+			tmp = tmp->next;
+			pos++;
+		}
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-		nb = (nb * 10) + (str[i++] - '0');
-	return (nb * neg);
+	printf("%d\n", pos);
+	return (pos);
 }

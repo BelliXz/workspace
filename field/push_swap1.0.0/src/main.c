@@ -65,6 +65,8 @@ int	ft_init_stack(t_stack **stack, int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
+		if (ft_check_empty(av[i]))
+			return (1);
 		nbr = ft_split(av[i], ' ');
 		if (ft_check_input(nbr, stack))
 		{
@@ -73,22 +75,11 @@ int	ft_init_stack(t_stack **stack, int ac, char **av)
 		}
 		j = 0;
 		while (nbr[j])
-		{
-			ft_add_to_stack(nbr[j], stack);
-			j++;
-		}
+			ft_add_to_stack(nbr[j++], stack);
 		ft_free_array(nbr);
 		i++;
 	}
 	ft_index(stack);
-
-	t_stack *test;
-	test = *stack;
-	while (test)
-	{
-		printf("index = %d\n", test->id);
-		test = test->next;
-	}
 	return (0);
 }
 
@@ -105,8 +96,8 @@ int	main(int ac, char **av)
 	*stack_b = NULL;
 	if (ft_init_stack(stack_a, ac, av) == 0)
 	{
-		// if (ft_is_sort(stack_a) == 0)
-		// 	ft_sort(stack_a, stack_b);
+		if (ft_is_sort(stack_a) == 0)
+			ft_sort(stack_a, stack_b);
 	}
 	ft_free_stack(stack_a);
 	ft_free_stack(stack_b);

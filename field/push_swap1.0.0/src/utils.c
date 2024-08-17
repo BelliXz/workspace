@@ -83,7 +83,7 @@ int	ft_find_max(t_stack **stack)
 	while (node)
 	{
 		if (node->id > max)
-			max_bit = node->id;
+			max = node->id;
 		node = node->next;
 	}
 	while ((max >> max_bit) != 0)

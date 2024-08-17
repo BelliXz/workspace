@@ -27,7 +27,7 @@ void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 	while (i < max)
 	{
 		j = 0;
-		while (j < stack_size)
+		while (j++ < stack_size)
 		{
 			a_first = *stack_a;
 			if (((a_first->id >> i) & 1) == 1)
@@ -39,6 +39,16 @@ void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 			push(stack_b, stack_a, "pa");
 		i++;
 	}
+}
+
+void	ft_sort5(t_stack **stack_a, t_stack **stack_b)
+{
+	ft_push_min_min(stack_a, stack_b);
+	ft_sort_2_3(stack_a);
+	if (ft_is_sort(stack_b) == 1)
+		swap(stack_b, "sb");
+	push(stack_b, stack_a, "pa");
+	push(stack_b, stack_a, "pa");
 }
 
 void	ft_sort3(t_stack **stack)
@@ -55,7 +65,7 @@ void	ft_sort3(t_stack **stack)
 	else if (st->id > nd->id && nd->id > rd->id)
 	{
 		rotate(stack, "ra");
-		swap(stack, "sb");
+		swap(stack, "sa");
 	}
 	else if (st->id > nd->id && nd->id < rd->id && st->id > rd->id)
 		rotate(stack, "ra");
@@ -70,7 +80,7 @@ void	ft_sort3(t_stack **stack)
 
 void	ft_sort_2_3(t_stack **stack)
 {
-	if (ft_stksize(*stack) == 2)
+	if (ft_stksize(*stack) == 2 && ft_is_sort(stack) == 0)
 		swap(stack, "sa");
 	else
 		ft_sort3(stack);
@@ -80,6 +90,8 @@ void	ft_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_stksize(*stack_a) <= 3)
 		ft_sort_2_3(stack_a);
+	else if (ft_stksize(*stack_a) <= 5)
+		ft_sort5(stack_a, stack_b);
 	else
 		ft_radix_sort(stack_a, stack_b);
 }

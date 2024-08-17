@@ -94,3 +94,32 @@ void	rev_rotate(t_stack **stack, char *op)
 	ft_putstr_fd(op, 1);
 	ft_putstr_fd("\n", 1);
 }
+
+void	ft_push_min_min(t_stack **stack_a, t_stack **stack_b)
+{
+	int		i;
+	int		j;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (count < 2)
+	{
+		i = ft_get_pos(stack_a);
+		if (i < 2)
+		{
+			j = 0;
+			while (j++ < i)
+				rotate (stack_a, "ra");
+			push(stack_a, stack_b, "pb");
+		}
+		else
+		{
+			j = 2;
+			while (j++ < i)
+				rev_rotate(stack_a, "rra");
+			push(stack_a, stack_b, "pb");
+		}
+		count++;
+	}
+}

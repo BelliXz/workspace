@@ -21,7 +21,7 @@ int	ft_is_num(char	**nbr)
 	while (nbr[i])
 	{
 		j = 0;
-		if (nbr[i][j] == '-' || nbr[i][j] == '+')
+		if ((nbr[i][j] == '-' || nbr[i][j] == '+') && ft_strlen(nbr[i]) > 1)
 			j++;
 		while (nbr[i][j])
 		{
@@ -46,6 +46,26 @@ int	ft_check_dup(int num, t_stack **stack)
 		node = node->next;
 	}
 	return (0);
+}
+
+int	ft_check_empty(char *args)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strlen(args) == 0)
+	{
+		ft_putstr_fd("Error\n", 1);
+		return (1);
+	}
+	while (args[i])
+	{
+		if (args[i] != ' ')
+			return (0);
+		i++;
+	}
+	ft_putstr_fd("Error\n", 1);
+	return (1);
 }
 
 int	ft_check_input(char **nbr, t_stack **stack)

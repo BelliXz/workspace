@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int					ft_atoi(const char *str);
+long				ft_atoi(const char *str);
 void				ft_bzero(void *str, size_t byt);
 void				*ft_calloc(size_t n, size_t size);
 int					ft_isalpha(int c);

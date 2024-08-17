@@ -5,7 +5,8 @@ SRC = src/main.c\
 		src/error.c\
 		src/sort.c\
 		src/operations.c\
-		src/free.c
+		src/free.c\
+		src/sort_utils.c
 
 CC = cc
 

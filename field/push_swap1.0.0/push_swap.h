@@ -33,11 +33,14 @@ void	ft_add_to_stack(char *nbr, t_stack **stack);
 int		ft_check_input(char **nbr, t_stack **stack);
 int		ft_check_dup(int num, t_stack **stack);
 int		ft_is_num(char	**nbr);
+int		ft_check_empty(char *args);
 
 void	ft_sort(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort_2_3(t_stack **stack);
 void	ft_sort3(t_stack **stack);
 void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b);
+void	ft_sort5(t_stack **stack_a, t_stack **stack_b);
+void	ft_radix_b(t_stack **stack_a, t_stack **stack_b, int i, int max);
 
 int		ft_find_max(t_stack **stack);
 int		ft_stksize(t_stack *stack);
@@ -49,8 +52,10 @@ void	swap(t_stack **stack, char *op);
 void	push(t_stack **from, t_stack **to, char *op);
 void	rotate(t_stack **stack, char *op);
 void	rev_rotate(t_stack **stack, char *op);
+void	ft_push_min_min(t_stack **a, t_stack **b);
 
 void	ft_free_array(char **array);
 void	ft_free_stack(t_stack **stack);
+int		ft_get_pos(t_stack **stack_a);
 
 #endif

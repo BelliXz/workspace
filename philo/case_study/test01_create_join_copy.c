@@ -34,7 +34,7 @@ int main()
     }
 
 	// sleep(4); // รอให้เธรดทำงานเสร็จ by sleep		
- eep(3); 									// ทำงานใน critical section เป็นเวลา 2 วินาที
+ sleep(3); 									// ทำงานใน critical section เป็นเวลา 2 วินาที
 	x += 1;
     for (int i = 0; i < 2; ++i) 				// รอให้เธรดทำงานเสร็จ by join
 	{

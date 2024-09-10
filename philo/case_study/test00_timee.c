@@ -45,8 +45,8 @@ int	main()
 	printf("tv_usec = %ld\n", a.tv_usec);
 
 	// usleep(100);
-	// sleep(1);
-	ft_usleep(100);
+	sleep(1);
+	// ft_usleep(100);
 	printf("			usleep\n");
 
 	gettimeofday(&a, NULL);
